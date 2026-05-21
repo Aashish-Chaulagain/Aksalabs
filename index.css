@@ -1,0 +1,194 @@
+:root {
+	--glass1: rgba(255, 255, 255, 0.336);
+	--glass2: rgba(0, 0, 0, 0.253);
+	--glass3: rgba(100, 100, 100, 0.342);
+	--glass4: rgba(184, 184, 184, 0.377);
+	--actual-glass: rgba(255, 255, 255, 0.07);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+}
+
+main,
+.service-section {
+	padding: 0;
+	margin: 0;
+	height: 100vh;
+}
+
+main {
+	display: grid;
+	align-items: center;
+	justify-content: center;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(10, 1fr);
+}
+
+main .h1-1,
+main div h1 {
+	color: #000000;
+	font-family: 'Intel One Mono', monospace;
+	margin: 0;
+	padding: 0;
+	padding-left: 0.2rem;
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+main .h1-1 {
+	grid-row: 5;
+	grid-column: 1 / span 2;
+	position: relative;
+}
+
+main div {
+	grid-row: 7;
+	grid-column: 1 / span 2;
+	position: relative;
+}
+
+main img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	object-fit: cover;
+	pointer-events: none;
+}
+
+.service-section {
+	display: flex;
+	flex-wrap: wrap;
+	background: linear-gradient(135deg, #121214 0%, #070708 50%, #000000 100%);
+}
+
+.servicecards { 
+	background: var(--actual-glass);
+	border-radius: 20px;
+	border: 2px solid #6d5f5f;
+	margin: 1rem;
+	padding: 1rem;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	height: 40vh;
+	flex: 1 1 30%;
+	min-width: 300px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;;
+	opacity: 0;
+	transition: opacity 1s ease, transform 1.2s ease;
+	transform: translateX(-200px);
+}
+
+.servicecards.show {
+	opacity: 1;
+	transform: translateX(0);
+}
+
+.servicecards h1 {
+	font-family: 'Intel One Mono', monospace;
+	color: #ffffff;
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+.servicecards div {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.servicecards a {
+	border-radius: 50%;
+	background: rgba(116, 116, 116, 0.35);
+	background-color: rgba(255, 255, 255, 0.185);
+	width: 50px;
+	height: 50px;
+	border: #6d5f5f 4px solid;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.2s ease;
+}
+
+.servicecards a svg {
+	width: 30px;
+	height: 30px;
+	color: #ffe6e6;
+}
+
+.servicecards a:hover {
+	box-shadow: 10px 10px 30px rgb(0, 0, 0);
+	transform: rotate(-40deg);
+}
+
+.explore-btn {
+	font-family: 'Intel One Mono', monospace;
+	background: linear-gradient(45deg, #fa9d45, #ffd79b);
+	border: none;
+	border-radius: 50px;
+	cursor: pointer;
+	color: #000;
+	text-decoration: none;
+	align-self: center;
+	justify-self: center;
+	height: 5vh;
+	width: calc(100vw * 0.5);
+	grid-row: 6;
+	grid-column: 1 / span 2;
+	z-index: 2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.5rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	position: relative;
+	border: 1.5px solid black;
+	margin-left: 0.2rem;
+}
+
+.explore-btn #arrow {
+	position: absolute;
+	left: 95%;
+	top: 57%;
+	transform: translateY(-50%);
+	transition: all 1s ease-in-out;
+	opacity: 0;
+}
+
+.explore-btn:hover #arrow {
+	transform: translate(calc(-100vw * 0.1), -50%);
+	opacity: 1;
+}
+
+.explore-btn #text {
+	position: absolute;
+	left: 40%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	transition: all 1s ease-in-out;
+}
+
+.explore-btn:hover #text {
+	transform: translate(-80%, -50%);
+}
+
